@@ -171,7 +171,7 @@ abstract class AbstractSecurityViewHelper extends AbstractConditionViewHelper
         if (true === (boolean) $this->arguments['anyBackendUser']) {
             $evaluations['anyBackendUser'] = intval($this->assertBackendUserLoggedIn());
         }
-        if (true === (boolean) $this->arguments['anyBackendUserGroup']) {
+        if (true === isset($this->arguments['anyBackendUserGroup']) && true === (boolean) $this->arguments['anyBackendUserGroup']) {
             $evaluations['anyBackendUserGroup'] = intval($this->assertBackendUserGroupLoggedIn());
         }
         if (true === isset($this->arguments['backendUser'])) {
@@ -353,7 +353,7 @@ abstract class AbstractSecurityViewHelper extends AbstractConditionViewHelper
      */
     public function getCurrentBackendUser()
     {
-        return $GLOBALS['BE_USER']->user;
+        return $GLOBALS['BE_USER']->user ?? [];
     }
 
     /**
