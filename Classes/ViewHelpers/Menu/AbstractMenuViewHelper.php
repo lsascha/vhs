@@ -488,7 +488,10 @@ abstract class AbstractMenuViewHelper extends AbstractTagBasedViewHelper
             $pages[$index]['linktext'] = $this->getItemTitle($pages[$index]);
             $forceAbsoluteUrl = $this->arguments['forceAbsoluteUrl'];
             $pages[$index]['link'] = $this->pageService->getItemLink($pages[$index], $forceAbsoluteUrl);
-            $processedPages[$index] = $pages[$index];
+            
+            if ($pages[$index]['link'] != '') {
+                $processedPages[$index] = $pages[$index];
+            }
         }
 
         return $processedPages;
