@@ -177,7 +177,7 @@ class PageService implements SingletonInterface
      * @param boolean $normalWhenNoLanguage
      * @return boolean
      */
-    public function hidePageForLanguageUid($page = null, $languageUid = -1, $normalWhenNoLanguage = true)
+    public function hidePageForLanguageUid($page = null, $languageUid = -1, $normalWhenNoLanguage = false)
     {
         if (is_array($page)) {
             $pageUid = $page['uid'];
