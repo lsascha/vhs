@@ -336,7 +336,8 @@ class LanguageMenuViewHelper extends AbstractTagBasedViewHelper
             $inactive = in_array($key, $languageUids) || (integer) $key === $this->defaultLangUid ? 0 : 1;
             $url = $this->getLanguageUrl($key);
             if (true === empty($url)) {
-                $url = GeneralUtility::getIndpEnv('REQUEST_URI');
+                unset($languageMenu[$key]);
+                continue;
             }
             $languageMenu[$key]['current'] = $current;
             $languageMenu[$key]['inactive'] = $inactive;
