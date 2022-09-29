@@ -341,6 +341,7 @@ class LanguageMenuViewHelper extends AbstractTagBasedViewHelper
             $languageMenu[$key]['current'] = $current;
             $languageMenu[$key]['inactive'] = $inactive;
             $languageMenu[$key]['url'] = $url;
+            $value['flag'] = str_replace('flags-', '', $value['flagIdentifier']);
             $languageMenu[$key]['flagSrc'] = $this->getLanguageFlag($value['flag'] ?? $value['iso'], $value['label']);
             // if the user has set a flag path, always use that over the TYPO3 icon factory so the user
             // has the option to use custom flag images based on the ISO code of the language.
